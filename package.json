@@ -1,0 +1,26 @@
+{
+  "name": "eslint-config-werk85",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:werk85/eslint-rules.git",
+  "author": "Malte Legenhausen <malte@werk85.de>",
+  "license": "NO LICENSE",
+  "scripts": {
+    "preinstall": "npx use-yarn"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.12.0",
+    "@typescript-eslint/parser": "^1.12.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.3"
+  },
+  "peerDependencies": {
+    "eslint": "^6.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1"
+  }
+}
