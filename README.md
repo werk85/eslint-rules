@@ -1,4 +1,4 @@
-# eslint-rules-werk85
+# eslint-config-werk85
 
 **Note:** Currently only Typescript Projects are supported.
 
