@@ -1,11 +1,13 @@
 # eslint-rules-werk85
 
-**Note:** Current only Typescript Projects are supported.
+**Note:** Currently only Typescript Projects are supported.
+
+**Note:** We are currently unable to publish the package on `npm` because of our `85` which is interpreted as a year. Use the Git-URL instead.
 
 ## Installation
 
 ```sh
-yarn add eslint-rules-werk85 eslint -D
+yarn add eslint-config-werk85 eslint -D
 ```
 
 ## Usage
