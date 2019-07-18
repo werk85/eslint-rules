@@ -36,6 +36,22 @@ For convinience you can add the following npm scripts to your `package.json`
 }
 ```
 
+### Error: Unable to resolve path to module
+
+If this error occurs set the `import/resolver` typescript directory in your `.eslintrc.js` file to the path of the `tsconfig.json` file that defines the module `paths` parameter.
+
+```js
+module.exports = {
+  settings: {
+    'import/resolver': {
+      typescript: {
+        directory: 'path to your tsconfig.json'
+      }
+    }
+  }
+}
+```
+
 ### VSCode
 
 If you use VSCode make sure you add the following configurations to your `settings.json` (Press `CMD + ,` on your keyboard)

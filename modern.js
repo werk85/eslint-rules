@@ -9,6 +9,12 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'prettier'],
+  settings: {
+    'import/resolver': {
+      // use <root>/tsconfig.json
+      typescript: {}
+    }
+  },
   rules: {
     'import/namespace': 'off',
     'import/order': 2,
