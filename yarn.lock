@@ -310,10 +310,9 @@ eslint-import-resolver-node@^0.3.2:
     debug "^2.6.9"
     resolve "^1.5.0"
 
-eslint-import-resolver-typescript@^1.1.1:
+eslint-import-resolver-typescript@JounQin/eslint-import-resolver-typescript#feat/resolve_dts:
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-1.1.1.tgz#e6d42172b95144ef16610fe104ef38340edea591"
-  integrity sha512-jqSfumQ+H5y3FUJ6NjRkbOQSUOlbBucGTN3ELymOtcDBbPjVdm/luvJuCfCaIXGh8sEF26ma1qVdtDgl9ndhUg==
+  resolved "https://codeload.github.com/JounQin/eslint-import-resolver-typescript/tar.gz/4f9c6dc691fed2a2073b5cbb52b6afd924b921d4"
   dependencies:
     debug "^4.0.1"
     resolve "^1.4.0"
