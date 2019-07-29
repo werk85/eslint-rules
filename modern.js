@@ -31,6 +31,7 @@ module.exports = {
     ],
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {
@@ -45,6 +46,6 @@ module.exports = {
       }
     ],
     '@typescript-eslint/no-empty-interface': 'off',
-    '@typescript-eslint/explicit-member-accessibility': 'off'
+    '@typescript-eslint/no-parameter-properties': 'off'
   }
 }
