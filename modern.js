@@ -29,6 +29,7 @@ module.exports = {
         singleQuote: true
       }
     ],
+    '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
