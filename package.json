@@ -9,8 +9,8 @@
     "preinstall": "npx use-yarn"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
     "eslint-config-prettier": "^6.1.0",
     "eslint-import-resolver-typescript": "JounQin/eslint-import-resolver-typescript#feat/resolve_dts",
     "eslint-plugin-import": "^2.18.2",
@@ -20,7 +20,7 @@
     "typescript": "^3.5.3"
   },
   "peerDependencies": {
-    "eslint": "^6.2.2"
+    "eslint": "^6.3.0"
   },
   "devDependencies": {
     "eslint": "^6.0.1"
