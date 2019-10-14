@@ -12,7 +12,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       // use <root>/tsconfig.json
-      ts: {
+      typescript: {
         alwaysTryTypes: true,
       }
     }
