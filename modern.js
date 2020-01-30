@@ -11,6 +11,11 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier'],
   settings: {
     'import/resolver': {
+      // Fixes import/default errors
+      // See: https://github.com/alexgorbatchev/eslint-import-resolver-typescript/issues/31#issuecomment-578105323
+      node: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
+      },
       // use <root>/tsconfig.json
       typescript: {
         alwaysTryTypes: true,
