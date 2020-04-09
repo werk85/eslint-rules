@@ -15,6 +15,7 @@ module.exports = {
   },
   rules: {
     'react/display-name': 'off',
+    'react/jsx-key': 'off',
     'react/prop-types': 'off'
   }
 }
