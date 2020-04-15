@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     'werk85/modern',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended'
   ],
   parserOptions: {
     ecmaFeatures: {
