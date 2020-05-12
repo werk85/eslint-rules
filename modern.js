@@ -28,12 +28,14 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
+        arrowParens: 'avoid',
         bracketSpacing: true,
         jsxBracketSameLine: true,
         parser: 'typescript',
         printWidth: 130,
         semi: false,
-        singleQuote: true
+        singleQuote: true,
+        trailingComma: 'none'
       }
     ],
     '@typescript-eslint/camelcase': 'off',
