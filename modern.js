@@ -8,7 +8,7 @@ module.exports = {
     'prettier'
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'deprecation', 'prettier'],
   settings: {
     'import/resolver': {
       // Fixes import/default errors
@@ -18,11 +18,12 @@ module.exports = {
       },
       // use <root>/tsconfig.json
       typescript: {
-        alwaysTryTypes: true,
+        alwaysTryTypes: true
       }
     }
   },
   rules: {
+    'deprecation/deprecation': 'warn',
     'import/namespace': 'off',
     'import/order': 2,
     'prettier/prettier': [
