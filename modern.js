@@ -25,7 +25,7 @@ module.exports = {
   rules: {
     'deprecation/deprecation': 'warn',
     'import/namespace': 'off',
-    'import/order': 2,
+    'import/order': 'error',
     'prettier/prettier': [
       'error',
       {
@@ -57,9 +57,11 @@ module.exports = {
         }
       }
     ],
+    '@typescript-eslint/no-base-to-string': 'error',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-parameter-properties': 'off',
-    '@typescript-eslint/no-var-requires': 'off'
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'error'
   }
 }

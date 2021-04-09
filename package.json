@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-werk85",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "main": "index.js",
   "repository": "git@github.com:werk85/eslint-rules.git",
   "author": "Malte Legenhausen <malte@werk85.de>",
