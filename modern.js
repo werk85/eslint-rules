@@ -68,7 +68,8 @@ module.exports = {
             message: 'Use ReadonlySet instead',
             fixWith: 'ReadonlySet'
           }
-        }
+        },
+        extendDefaults: true
       }
     ],
     '@typescript-eslint/camelcase': 'off',
