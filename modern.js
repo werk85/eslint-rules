@@ -39,6 +39,38 @@ module.exports = {
         trailingComma: 'none'
       }
     ],
+    '@typescript-eslint/array-type': [
+      'error',
+      {
+        default: 'generic',
+        readonly: 'generic'
+      }
+    ],
+    '@typescript-eslint/ban-types': [
+      'error',
+      {
+        types: {
+          'Array': {
+            message: 'Use ReadonlyArray instead',
+            fixWith: 'ReadonlyArray'
+          },
+
+          'Map': {
+            message: 'Use ReadonlyMap instead',
+            fixWith: 'ReadonlyMap'
+          },
+
+          'Record': {
+            message: 'Use Readonly<Record<K, T>> instead'
+          },
+
+          'Set': {
+            message: 'Use ReadonlySet instead',
+            fixWith: 'ReadonlySet'
+          }
+        }
+      }
+    ],
     '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
