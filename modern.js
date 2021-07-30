@@ -24,6 +24,13 @@ module.exports = {
   },
   rules: {
     'deprecation/deprecation': 'warn',
+    'eqeqeq': [
+      'error',
+      'always',
+      {
+        'null': 'ignore'
+      }
+    ],
     'import/namespace': 'off',
     'import/order': 'error',
     'prettier/prettier': [
