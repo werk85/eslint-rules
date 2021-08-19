@@ -2,13 +2,29 @@
 
 **Note:** Currently only Typescript Projects are supported.
 
-**Note:** We are currently unable to publish the package on `npm` because of our `85` which is interpreted as a year. Use the Git-URL instead.
-
 ## Installation
 
 ```sh
 yarn add eslint-config-werk85 eslint -D
 ```
+
+## Included plugins
+
+Following plugins are included in `werk85/modern`:
+
+* [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
+* [import](https://github.com/import-js/eslint-plugin-import)
+* [jest](https://github.com/jest-community/eslint-plugin-jest)
+* [prettier](https://github.com/prettier/eslint-plugin-prettier)
+
+Please consult the documentation of each plugin for further rule explanation.
+
+### React
+
+The following plugins are added addtionally to `werk85/react`:
+
+* [react](https://github.com/yannickcr/eslint-plugin-react)
+* [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
 
 ## Usage
 

@@ -1,14 +1,15 @@
 module.exports = {
   extends: [
+    'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:@typescript-eslint/recommended',
+    'plugin:jest/all',
     'plugin:prettier/recommended',
     'prettier'
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'deprecation', 'prettier'],
+  plugins: ['@typescript-eslint', 'deprecation', 'jest', 'prettier'],
   settings: {
     'import/resolver': {
       // Fixes import/default errors
@@ -33,6 +34,10 @@ module.exports = {
     ],
     'import/namespace': 'off',
     'import/order': 'error',
+    'jest/lowercase-name': 'off',
+    'jest/no-hooks': 'off',
+    'jest/prefer-expect-assertions': 'off',
+    'jest/unbound-method': 'off',
     'prettier/prettier': [
       'error',
       {
