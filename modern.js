@@ -42,8 +42,8 @@ module.exports = {
       'error',
       {
         arrowParens: 'avoid',
+        bracketSameLine: true,
         bracketSpacing: true,
-        jsxBracketSameLine: true,
         parser: 'typescript',
         printWidth: 130,
         semi: false,
