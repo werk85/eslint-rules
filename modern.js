@@ -38,6 +38,7 @@ module.exports = {
     'jest/no-hooks': 'off',
     'jest/prefer-expect-assertions': 'off',
     'jest/unbound-method': 'off',
+    'object-shorthand': ['error', 'always'],
     'prettier/prettier': [
       'error',
       {
