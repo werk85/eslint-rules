@@ -39,6 +39,12 @@ module.exports = {
     'jest/prefer-expect-assertions': 'off',
     'jest/unbound-method': 'off',
     'object-shorthand': ['error', 'always'],
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: ['.']
+      }
+    ],
     'prettier/prettier': [
       'error',
       {
