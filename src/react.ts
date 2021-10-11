@@ -1,9 +1,6 @@
-module.exports = {
-  extends: [
-    'werk85/modern',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended'
-  ],
+import { Linter } from 'eslint'
+
+const config: Linter.Config = {
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -14,9 +11,12 @@ module.exports = {
       version: 'detect'
     }
   },
+  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
   rules: {
     'react/display-name': 'off',
     'react/jsx-key': 'off',
     'react/prop-types': 'off'
   }
 }
+
+export = config
