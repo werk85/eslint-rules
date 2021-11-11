@@ -20,7 +20,7 @@ const config: Linter.Config = {
     'plugin:prettier/recommended',
     'prettier'
   ],
-  plugins: ['@typescript-eslint', 'deprecation', 'prettier'],
+  plugins: ['@typescript-eslint', '@delagen/deprecation', 'prettier'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -83,7 +83,7 @@ const config: Linter.Config = {
     }
   ],
   rules: {
-    'deprecation/deprecation': 'warn',
+    '@delagen/deprecation/deprecation': 'warn',
     eqeqeq: [
       'error',
       'always',
