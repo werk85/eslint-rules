@@ -1165,6 +1165,7 @@ __metadata:
     husky: ^7.0.4
     npm-check-updates: ^12.0.2
     prettier: ^2.4.1
+    rimraf: ^3.0.2
     ts-node: ^10.4.0
     typescript: ^4.4.4
   peerDependencies:
