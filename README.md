@@ -3,7 +3,7 @@
 ## Installation
 
 ```sh
-yarn add eslint-config-werk85 eslint@7 -D
+yarn add eslint-config-werk85 eslint@8 -D
 ```
 
 ## Usage
