@@ -13,7 +13,7 @@ Create a `.eslintrc.json` in the root of your project with the following content
 ```json
 {
   "root": true,
-  "extents": "werk85",
+  "extends": "werk85",
   "parserOptions": {
     "project": "./tsconfig.json"
   }
