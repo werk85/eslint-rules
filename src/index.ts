@@ -56,6 +56,8 @@ const config: Linter.Config = {
           }
         ],
         '@typescript-eslint/camelcase': 'off',
+        '@typescript-eslint/consistent-indexed-object-style': 'error',
+        '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/explicit-member-accessibility': 'off',
@@ -78,7 +80,10 @@ const config: Linter.Config = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-parameter-properties': 'off',
         '@typescript-eslint/no-var-requires': 'off',
-        '@typescript-eslint/restrict-template-expressions': 'error'
+        '@typescript-eslint/restrict-template-expressions': 'error',
+        '@typescript-eslint/sort-type-union-intersection-members': 'error',
+        '@typescript-eslint/strict-boolean-expressions': 'error',
+        '@typescript-eslint/switch-exhaustiveness-check': 'error'
       }
     }
   ],
