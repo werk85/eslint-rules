@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-werk85",
-  "version": "6.0.0",
+  "version": "7.0.0-beta.2",
   "main": "index.js",
   "repository": "git@github.com:werk85/eslint-config-werk85.git",
   "author": "Malte Legenhausen <malte@werk85.de>",
@@ -18,6 +18,7 @@
     "eslint-config-prettier": "^8.4.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-deprecation": "^1.3.2",
+    "eslint-plugin-fp-ts": "^0.3.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jest": "^26.1.1",
     "eslint-plugin-prettier": "^4.0.0",
