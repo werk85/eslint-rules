@@ -107,16 +107,22 @@ Following plugins are included in `werk85`:
 
 Please consult the documentation of each plugin for further rule explanation.
 
+### fp-ts
+
+The following plugins are added additionally to `werk85/fp-ts`:
+
+* [fp-ts](https://github.com/buildo/eslint-plugin-fp-ts)
+
 ### React
 
-The following plugins are added addtionally to `werk85/react`:
+The following plugins are added additionally to `werk85/react`:
 
 * [react](https://github.com/yannickcr/eslint-plugin-react)
 * [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
 
 ### Jest
 
-The following plugins are added addtionally to `werk85/jest`:
+The following plugins are added additionally to `werk85/jest`:
 
 * [jest](https://github.com/jest-community/eslint-plugin-jest)
 
