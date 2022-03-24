@@ -98,13 +98,13 @@ const config: Linter.Config = {
     ],
     'import/namespace': 'off',
     'import/order': 'error',
-    'object-shorthand': ['error', 'always'],
     'no-restricted-imports': [
       'error',
       {
         paths: ['.']
       }
     ],
+    'object-shorthand': ['error', 'always'],
     'prettier/prettier': [
       'error',
       {
@@ -115,6 +115,14 @@ const config: Linter.Config = {
         semi: false,
         singleQuote: true,
         trailingComma: 'none'
+      }
+    ],
+    quotes: [
+      'error',
+      'single',
+      {
+        allowTemplateLiterals: false,
+        avoidEscape: true
       }
     ]
   }
