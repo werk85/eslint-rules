@@ -17,7 +17,11 @@ const config: Linter.Config = {
     'react/jsx-key': 'off',
     'react/jsx-uses-react': 'off',
     'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    'react/void-dom-elements-no-children': 'error',
+    'react/self-closing-comp': 'error',
+    'react/jsx-curly-brace-presence': ['error', 'never'],
+    'react/jsx-no-constructed-context-values': 'error'
   }
 }
 
