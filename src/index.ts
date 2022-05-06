@@ -96,7 +96,12 @@ const config: Linter.Config = {
         null: 'ignore'
       }
     ],
+    'import/first': 'error',
     'import/namespace': 'off',
+    'import/newline-after-import': 'error',
+    'import/no-named-default': 'error',
+    'import/no-relative-packages': 'error',
+    'import/no-useless-path-segments': 'error',
     'import/order': 'error',
     'no-restricted-imports': [
       'error',
