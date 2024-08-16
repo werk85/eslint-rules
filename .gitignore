@@ -1,7 +1,11 @@
+# dependencies
 lib/
 node_modules/
 
-# yarn berry zero-installs
+# misc
+.DS_Store
+
+# yarn berry
 .yarn/*
 !.yarn/cache
 !.yarn/patches
@@ -9,3 +13,8 @@ node_modules/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

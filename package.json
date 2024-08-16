@@ -3,41 +3,45 @@
   "version": "7.3.0",
   "main": "index.js",
   "repository": "git@github.com:werk85/eslint-config-werk85.git",
-  "author": "Malte Legenhausen <malte@werk85.de>",
+  "author": "Malte Legenhausen <malte@werk85.de>, Andreas Krut <andreas@werk85.de>",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf lib && tsc -p tsconfig.cjs.json && ts-node ./scripts/build.ts",
-    "lint": "eslint .",
-    "postinstall": "husky install",
-    "prepublishOnly": "ts-node ./scripts/pre-publish.ts",
-    "release": "yarn build && ts-node ./scripts/release.ts"
+    "build": "rimraf lib && tsc -p tsconfig.cjs.json && tsx ./scripts/build.ts",
+    "lint": "concurrently \"yarn:lint:*\"",
+    "lint:es": "eslint .",
+    "lint:tsc": "tsc -p tsconfig.json",
+    "fix": "yarn lint:es --fix",
+    "postinstall": "husky",
+    "prepublishOnly": "tsx ./scripts/pre-publish.ts",
+    "release": "yarn build && tsx ./scripts/release.ts"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.12.1",
-    "@typescript-eslint/parser": "^5.12.1",
-    "eslint-config-prettier": "^8.4.0",
-    "eslint-import-resolver-typescript": "^2.5.0",
-    "eslint-plugin-deprecation": "^1.3.2",
-    "eslint-plugin-fp-ts": "^0.3.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jest": "^26.1.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.5.1",
-    "typescript": "^4.5.5"
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
+    "@typescript-eslint/parser": "^8.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-deprecation": "^3.0.0",
+    "eslint-plugin-fp-ts": "^0.3.2",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jest": "^28.8.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
   },
   "peerDependencies": {
-    "eslint": "^8.9.0"
+    "eslint": "^8.57.0"
   },
   "devDependencies": {
-    "@types/eslint": "^8.4.1",
-    "@types/node": "^17.0.19",
-    "eslint": "^8.9.0",
-    "husky": "^7.0.4",
-    "npm-check-updates": "^12.4.0",
-    "rimraf": "^3.0.2",
-    "ts-node": "^10.5.0"
+    "@types/eslint": "^8.44.7",
+    "@types/node": "^22.3.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "husky": "^9.1.4",
+    "npm-check-updates": "^17.0.6",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.17.0"
   },
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@3.5.0"
 }
