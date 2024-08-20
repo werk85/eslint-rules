@@ -1,47 +1,84 @@
 {
   "name": "eslint-config-werk85",
-  "version": "7.3.0",
-  "main": "index.js",
+  "version": "9.0.0-beta.5",
   "repository": "git@github.com:werk85/eslint-config-werk85.git",
   "author": "Malte Legenhausen <malte@werk85.de>, Andreas Krut <andreas@werk85.de>",
   "license": "MIT",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "types": "./esm/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js",
+      "import": "./esm/index.js",
+      "types": "./esm/index.d.ts"
+    },
+    "./prettier": {
+      "default": "./lib/prettier.js",
+      "import": "./esm/prettier.js",
+      "types": "./esm/prettier.d.ts"
+    },
+    "./react": {
+      "default": "./lib/react.js",
+      "import": "./esm/react.js",
+      "types": "./esm/react.d.ts"
+    },
+    "./fp-ts": {
+      "default": "./lib/fp-ts.js",
+      "import": "./esm/fp-ts.js",
+      "types": "./esm/fp-ts.d.ts"
+    },
+    "./jest": {
+      "default": "./lib/jest.js",
+      "import": "./esm/jest.js",
+      "types": "./esm/jest.d.ts"
+    }
+  },
   "scripts": {
-    "build": "rimraf lib && tsc -p tsconfig.cjs.json && tsx ./scripts/build.ts",
+    "build": "rimraf dist && yarn prepare && tsx ./scripts/build.ts",
     "lint": "concurrently \"yarn:lint:*\"",
     "lint:es": "eslint .",
     "lint:tsc": "tsc -p tsconfig.json",
     "fix": "yarn lint:es --fix",
+    "prepare": "concurrently \"yarn:prepare:*\"",
+    "prepare:cjs": "rimraf dist/lib && tsc --project tsconfig.cjs.json",
+    "prepare:esm": "rimraf dist/esm && tsc --project tsconfig.esm.json",
     "postinstall": "husky",
     "prepublishOnly": "tsx ./scripts/pre-publish.ts",
     "release": "yarn build && tsx ./scripts/release.ts"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.1.0",
-    "@typescript-eslint/parser": "^8.1.0",
+    "@eslint/compat": "^1.1.1",
+    "@eslint/js": "^9.9.1",
+    "@stylistic/eslint-plugin": "^2.6.4",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-deprecation": "^3.0.0",
     "eslint-plugin-fp-ts": "^0.3.2",
-    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest": "^28.8.0",
+    "eslint-plugin-perfectionist": "^3.2.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "prettier": "^3.3.3",
-    "typescript": "^5.5.4"
+    "typescript-eslint": "^8.2.0"
   },
   "peerDependencies": {
-    "eslint": "^8.57.0"
+    "eslint": "^9.9.1"
   },
   "devDependencies": {
-    "@types/eslint": "^8.44.7",
-    "@types/node": "^22.3.0",
+    "@local/eslint-config-werk85": "./dist",
+    "@types/eslint": "^9.6.1",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^22.5.0",
+    "@types/react": "^18.3.4",
     "concurrently": "^8.2.2",
-    "eslint": "^8.57.0",
-    "husky": "^9.1.4",
-    "npm-check-updates": "^17.0.6",
+    "eslint": "^9.9.1",
+    "husky": "^9.1.5",
+    "npm-check-updates": "^17.1.0",
     "rimraf": "^6.0.1",
-    "tsx": "^4.17.0"
+    "tsx": "^4.18.0",
+    "typescript": "^5.5.4"
   },
   "packageManager": "yarn@3.5.0"
 }
