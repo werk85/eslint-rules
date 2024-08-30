@@ -1,8 +1,8 @@
 {
   "name": "eslint-config-werk85",
-  "version": "9.0.0-beta.5",
+  "version": "9.0.0",
   "repository": "git@github.com:werk85/eslint-config-werk85.git",
-  "author": "Malte Legenhausen <malte@werk85.de>, Andreas Krut <andreas@werk85.de>",
+  "author": "werk85 <moin@werk85.de>",
   "license": "MIT",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
