@@ -1,0 +1,25 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.markdownlint": "explicit"
+    },
+    "cSpell.diagnosticLevel": "Hint",
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.preferences.useAliasesForRenames": false,
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "javascript.format.enable": false,
+    "typescript.format.enable": false,
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+    "search.exclude": {
+        ".yarn": true,
+        "yarn.lock": true
+    },
+    "circleci.persistedProjectSelection": [
+        "gh/werk85/eslint-config-werk85"
+    ]
+}

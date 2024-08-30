@@ -1,164 +1,117 @@
 # eslint-config-werk85
 
-## Installation
+## Install
 
 ```sh
-yarn add eslint-config-werk85 eslint@8 -D
+yarn add -D eslint eslint-config-werk85 
 ```
 
-## Usage
+We offer different eslint configs which can be combined on demand. Similar to eslint and other eslint configs we provide `recommended` and `stylistic` configs. The `recommended` configs contain rules which help to improve the code to be more robust and secure. The `stylistic` configs contain only formatting rules with the main purpose to enforce a consistent code style.
 
-Create a `.eslintrc.json` in the root of your project with the following content.
+| `exports`  | recommended | stylistic | |
+|------------|-------------|-----------|-|
+| `.`         | ✅ | ✅ | Common rules appropriate in general for all files. |
+| `/react`    | ✅ | ✅ | Mainly when working with react, i.e. for `.tsx` files. |
+| `/jest`     | ✅ | ✅ | For test files `*.test.*` in combination with `jest`. |
+| `/fp-ts`    | ✅ | ➖ | For functional programming with the `fp-ts` ecosystem. |
+| `/prettier` | ➖ | ✅ | `prettier` rules must be added last to the config because it disables conflicting rules. |
 
-```json
-{
-  "root": true,
-  "extends": "werk85",
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  }
-}
-```
+We include the following plugins.
 
-Now add the following `lint:es` and `lint:es:fix` scripts to your root `package.json`:
-
-```json
-{
-  ...
-  "scripts": {
-    "lint:es": "yarn eslint .",
-    "lint:es:fix": "yarn eslint --fix ."
-  }
-  ...
-}
-```
-
-### Monorepo Usage
-
-In a monorepo setup is the configuration a little bit different. You need to extend the configuration as described in the following JSON snippet and add the `scripts` to each `packages/*/package.json` file. Then run the linting in all sub packages with `lerna` or `yarn` workspace tools.
-
-```json
-{
-  "root": true,
-  "extends": "werk85",
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-  "overrides": [
-    // This makes sure you can use commonjs `require` calls in `js` files that are included in your `tsconfig.json` files.
-    {
-      "files":  ["*.js"],
-      "rules": {
-        "@typescript-eslint/no-var-requires": "off"
-      }
-    },
-    // Exclude this
-    {
-      "files": ["packages/*/test/**"],
-      "extends": ["werk85", "werk85/jest"],
-      "parserOptions": {
-        "project": "./test/tsconfig.json"
-      }
-    }
-  ]
-}
-```
-
-The configuration expects that you have in each project root, `packages/*` and `packages/*/test` directory a `tsconfig.json` that `includes` or `excludes` all files you want to lint. For linting of `*.js` files make sure you set `allowJs: true` in your root `tsconfig.json` if you extend all other configurations from it or in each individually.
-
-#### Extending the Monorepo Base Configuration
-
-If you need to extend a configuration e.g. for using the `werk85/react` ruleset in your frontend package, you need to create a `.eslintrc.js` file in the folder for which the new configuration should be applied and copy the following code.
-
-```js
-const path = require('path')
-
-const project = path.join(__dirname, 'tsconfig.json')
-
-module.exports = {
-  extends: 'werk85/react',
-  parserOptions: {
-    project
-  },
-  settings: {
-    'import/resolver': {
-      typescript: {
-        project
-      }
-    }
-  }
-}
-```
-
-This base configuration can now be adjusted to your needs. It is important to define the `project` properties as absolute paths else it can happen that `eslint` uses the wrong `tsconfig.json`.
-
-If you want to lint the `.eslintrc.js` file in your project you need to explicitly add the file in your `tsconfig.json`s `includes` property. Hidden files are excluded by default from typescript projects.
-
-## Included Configurations
-
-### Base Configuration
-
-Following plugins are included in `werk85`:
-
-* [deprecation](https://github.com/gund/eslint-plugin-deprecation)
-* [import](https://github.com/import-js/eslint-plugin-import)
+* [eslint](https://eslint.org/docs/latest/rules/)
+* [typescript-eslint](https://typescript-eslint.io/rules/)
+* [eslint Stylistic](https://eslint.style/packages/default)
+* [Perfectionist](https://perfectionist.dev/)
 * [prettier](https://github.com/prettier/eslint-plugin-prettier)
-* [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
+* [react](https://github.com/jsx-eslint/eslint-plugin-react)
+* [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
+* [jest](https://github.com/jest-community/eslint-plugin-jest)
+* [deprecation](https://github.com/gund/eslint-plugin-deprecation)
 
 Please consult the documentation of each plugin for further rule explanation.
 
-### fp-ts
+## Usage
 
-The following plugins are added additionally to `werk85/fp-ts`:
+Create a `eslint.config.mjs` config file in the root of your project with the following content.
 
-* [fp-ts](https://github.com/buildo/eslint-plugin-fp-ts)
+``` js
+import werk85 from 'eslint-config-werk85'
+import prettier from 'eslint-config-werk85/prettier'
 
-### React
+/**
+ * @type { import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray }
+ */
+const config = [
+  {
+    ignores: [/* array of paths to be ignored */]
+  }
+  ...werk85.recommended,
+  ...werk85.stylistic,
+  ...prettier.stylistic,
+  // add additional configs if necessary
+]
 
-The following plugins are added additionally to `werk85/react`:
+export default config
+```
 
-* [react](https://github.com/yannickcr/eslint-plugin-react)
-* [react-hooks](https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks)
+### Extending Specific Rules
 
-### Jest
+Eslint looks for a `eslint.config.mjs` config file (`.js` and `cjs` extensions are fine as well). Note that only a single `eslint.config.mjs` must be present in your project and that must be located in the project root. Hence, specific rules must be added there.
 
-The following plugins are added additionally to `werk85/jest`:
+When, for instance, a test folder or a package folder of a monorepo needs additional rules and those rules should be applied only there then `eslint.config.mjs` must be extended with additional configs containing the `files` property which restricts the configuration only to files as specified in `files`.
 
-* [jest](https://github.com/jest-community/eslint-plugin-jest)
+For better convenience we suggest to save the specific rules in the folder where required, mimicking the legacy behavior before switching to Flat Config. Such a config file has the same structure as the root config but restricted to the folder by specifying the `files` field.
 
-This configuration can be added as follows to yours `.eslintrc.json`:
+In the following we assume a monorepo with a package `app` containing react components. Therefore, we want to add rules for react and those rules should be applied only to files in the `app` package. It is sufficient to specify only react rules knowing that the root config contains already common rules.
+
+``` js
+// packages/app/eslint.config.package.mjs
+import react from 'eslint-config-werk85/react'
+import findWorkspaceRoot from 'find-yarn-workspace-root'
+import path from 'node:path'
+
+// Determine relative path of package.
+const __dirname = path.relative(findWorkspaceRoot(), import.meta.dirname)
+
+// Restrict rules only to files in the package folder and its subfolders.
+const files = [path.join(__dirname, '**/*.{mjs,ts,tsx}')]
+
+/**
+ * @type { import('@typescript-eslint/utils').TSESLint.FlatConfig.ConfigArray }
+ */
+const config = [
+  // Every config must be restricted to the package folder.
+  // Otherwise those rules would leak into other packages.
+  ...react.recommended.map(config => ({ ...config, files })),
+  ...react.stylistic.map(config => ({ ...config, files })),
+]
+```
+
+At this moment the additional config is not loaded. We need to extend the project config `eslint.config.mjs`. Add the following lines to take effect.
+
+```js
+import configPackageApp from 'packages/app/eslint.config.package.mjs'
+
+const config = [
+  // ... common configs, see above
+  configPackageApp
+]
+```
+
+## Linting Scripts
+
+When multiple linters are used (e.g. `eslint` and `tsc`) then we recommend to use [concurrently](https://github.com/open-cli-tools/concurrently) in combination with wildcards. Add the following scripts to your `package.json` file.
 
 ```json
 {
-  "overrides": [
-    {
-      "files": "test/**",
-      "extends": ["werk85", "werk85/jest"],
-      "parserOptions": {
-        "project": "./test/tsconfig.json"
-      }
-    }
-  ]
+  "lint": "concurrently \"yarn:lint:*\"",
+  "lint:es": "eslint .",
+  "lint:tsc": "tsc -p ./tsconfig.json",
+  "fix": "yarn lint:es --fix",
 }
 ```
 
-### Error: Unable to resolve path to module
-
-If this error occurs set the `import/resolver` typescript directory in your `.eslintrc.json` or `.eslintrc.js` file to the path of the `tsconfig.json` file that defines the module `paths` parameter.
-
-```js
-module.exports = {
-  settings: {
-    'import/resolver': {
-      typescript: {
-        project: 'path to your tsconfig.json'
-      }
-    }
-  }
-}
-```
-
-### VSCode
+## VSCode Integration
 
 If you use VSCode install the [ESLint Plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and make sure you add the following configurations to your `settings.json`. You can access the settings by pressing `CMD + ,` on your keyboard and click on the `Open Settings (JSON)` icon in the upper right corner.
 
@@ -166,8 +119,26 @@ If you use VSCode install the [ESLint Plugin](https://marketplace.visualstudio.c
 {
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
 }
 ```
 
 This enables the automatic fixing of errors on save and enables eslint to validate typescript files.
+
+## Troubleshooting
+
+### ESLint does not work in VSCode
+
+Sometimes it may happen that the eslint extension is not up-to-date with the latest config or even crashes when the config is broken. When the updated configs are not in sync then usually it is sufficient to restart the eslint server via `ESLint: Restart ESLint Server` to reload the config.
+
+When the config file has been modified with invalid code or a broken rule has been added it results in a crash of the extension. In that case fix the config. Then the eslint extension must be restarted with `Developer: Restart Extension Host`. If the code is valid then everything should work fine. Try for instance adding multiple empty lines to check if some eslint errors are shown. If no errors are shown it means that there is still something wrong with the config.
+
+Unfortunately VSCode does not show why the extension has crashed. For debugging use `yarn eslint .` to start the linter. If there are problems with the config it will print errors which will help you to locate the problem.
+
+Restarting VSCode may be a last option.
+
+### ESLint does not fix a fixable problem
+
+When eslint identifies a problem which is fixable (usually a stylistic rule) but does not fix it on save (or via `yarn fix`) then it usually means that there are conflicting rules. In the best case eslint will report problems from multiple rules directly identifying the conflicting rules. Sometimes it may be tedious to identify the conflicting rules because another problem arises only after the fix of the first rule. Then the second rule kicks in and reverts the fix (or kind of) such that a problem is reported only from the first rule. In those case it may help disable the first rule and modify the code manually according to the first rule and then check what the second conflicting rule might be.
